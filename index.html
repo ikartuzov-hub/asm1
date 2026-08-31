@@ -103,10 +103,12 @@ section{margin-bottom:22px}
 /* даты */
 .days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .day{padding:10px 6px;border-radius:13px;border:1px solid var(--line);background:var(--bg2);
-  cursor:pointer;text-align:center}
-.day.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 13%,var(--bg2))}
-.day .d1{font-family:Poppins;font-weight:600;font-size:14px}
-.day .d2{font-size:11px;color:var(--muted);margin-top:1px}
+  color:var(--ink);cursor:pointer;text-align:center;font-family:Lato}
+.day.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 15%,var(--bg2))}
+.day.on .d1{color:var(--accent)}
+.day.on .d2{color:color-mix(in srgb,var(--accent) 70%,var(--ink))}
+.day .d1{font-family:Poppins;font-weight:700;font-size:14.5px;color:var(--ink)}
+.day .d2{font-size:11.5px;color:var(--muted);margin-top:2px;font-weight:600}
 
 /* сетка боксов */
 .boxes{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);
@@ -148,10 +150,12 @@ section{margin-bottom:22px}
   border-radius:5px;padding:1px 5px;margin-left:6px;vertical-align:1.5px;font-family:Poppins}
 
 .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:8px}
-.slot{padding:11px 6px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);cursor:pointer;text-align:center}
-.slot.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--bg2))}
-.slot .t{font-family:Poppins;font-weight:600;font-size:15.5px}
-.slot .d{font-size:10.5px;color:var(--muted);margin-top:2px}
+.slot{padding:11px 6px;border-radius:14px;border:1px solid var(--line);background:var(--bg2);
+  color:var(--ink);cursor:pointer;text-align:center;font-family:Lato}
+.slot.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,var(--bg2))}
+.slot.on .t{color:var(--accent)}
+.slot .t{font-family:Poppins;font-weight:700;font-size:16px;color:var(--ink)}
+.slot .d{font-size:11px;color:var(--muted);margin-top:2px;font-weight:600}
 
 /* waitlist */
 .wl{background:linear-gradient(135deg,color-mix(in srgb,var(--ok) 12%,var(--bg2)),var(--bg2));
@@ -236,6 +240,7 @@ footer{padding:30px 18px 62px;text-align:center;font-size:15px;color:var(--muted
 footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--accent);
   text-underline-offset:4px;display:inline-block;padding:8px 4px}
 .chn{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0 2px}
+#wlChn{grid-template-columns:repeat(3,1fr)}
 .chnb{padding:11px 4px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);
   cursor:pointer;text-align:center;color:var(--ink);font-family:Poppins;font-weight:600;font-size:11.5px;
   display:flex;flex-direction:column;align-items:center;gap:5px}
@@ -256,17 +261,27 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
 .prodlink .t b{font-family:Poppins;font-size:14.5px;display:block;margin-bottom:1px}
 .prodlink .t span{color:var(--muted)}
 .prodlink .ar{color:var(--mag);font-size:19px;font-family:Poppins}
-.pad{height:96px}
+.pad{height:132px}
 .hidden{display:none !important}
 
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 18px calc(10px + env(safe-area-inset-bottom));
-  background:color-mix(in srgb,var(--bg) 93%,transparent);backdrop-filter:blur(14px);border-top:1px solid var(--line);
-  transform:translateY(120%);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;
+  padding:11px 18px calc(11px + env(safe-area-inset-bottom));
+  background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(16px);
+  border-top:1px solid var(--line);box-shadow:0 -8px 26px rgba(0,0,0,.35);
+  transform:translateY(130%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+:root[data-theme="light"] .bar{box-shadow:0 -6px 22px rgba(20,40,70,.12)}
 .bar.show{transform:none}
 .bar-in{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px}
-.bar .sum{flex:1;min-width:0}
-.bar .sum .a{font-family:Poppins;font-weight:700;font-size:18px}
-.bar .sum .b{font-size:12px;color:var(--muted)}
+.bar .info{flex:1;min-width:0}
+.bar .ln1{font-family:Poppins;font-weight:700;font-size:14.5px;color:var(--ink);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .ln2{font-size:12.5px;color:var(--muted);margin-top:2px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.bar .ln2 b{color:var(--accent);font-family:Poppins;font-weight:700}
+.bar .ln2 .warn{color:var(--mag);font-weight:700;font-family:Poppins}
+.bar .cta{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:1px;
+  padding:10px 18px;line-height:1.15}
+.bar .cta .lbl{font-size:12px;font-weight:600;opacity:.85}
+.bar .cta .amt{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
 .cta{border:0;border-radius:14px;padding:13px 19px;background:linear-gradient(90deg,#f0b429,#e6a01a);
   color:var(--accent-ink);font-family:Poppins;font-weight:700;font-size:15px;cursor:pointer;white-space:nowrap}
 .cta:active{transform:scale(.97)}
@@ -313,11 +328,15 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
 <div class="top">
   <div class="top-in">
     <div class="mark">
-      <svg width="25" height="25" viewBox="0 0 100 100" fill="none" stroke="url(#g1)" stroke-width="7" stroke-linecap="round" aria-hidden="true">
-        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#f0b429"/><stop offset="100%" stop-color="#e0479b"/></linearGradient></defs>
-        <path d="M28 64 L50 16 L72 64"/><path d="M38 48 H62"/>
-        <path d="M18 84 Q31 77 44 84 Q57 91 70 84 Q77 80 84 82"/>
+      <svg width="27" height="27" viewBox="0 0 100 100" aria-hidden="true">
+        <rect x="1" y="1" width="98" height="98" rx="24" fill="url(#gA)"/>
+        <defs><linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#f6c34a"/><stop offset="100%" stop-color="#e89a1c"/></linearGradient></defs>
+        <g stroke="#17110a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M27 68 L50 20 L73 68"/><path d="M38 52 H62"/>
+        </g>
+        <path d="M20 84 Q33 77 46 84 Q59 91 72 84 Q78 81 84 83" stroke="#17110a" stroke-width="7"
+              stroke-linecap="round" fill="none" opacity=".9"/>
       </svg>
       <span>AUTOLAVAGEM SÃO&nbsp;MARTINHO</span>
     </div>
@@ -400,10 +419,8 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
     <div class="wl">
       <h3 data-i="wlH">Não encontra hora?</h3>
       <p data-i="wlP">Avisamos no WhatsApp assim que alguém desmarcar. Quem responder primeiro fica com a vaga.</p>
-      <button class="wa" id="wlBtn">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2 .2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.3.5-.3.3c-.1.1-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.2.3-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.5 0 1z"/></svg>
-        <span data-i="wlBtn">Avise-me pelo WhatsApp</span>
-      </button>
+      <div class="chn" id="wlChn"></div>
+      <button class="wa" id="wlBtn" style="margin-top:9px"><span data-i="wlBtn">Avise-me</span></button>
     </div>
   </section>
 
@@ -418,11 +435,6 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
       <p class="disclaimer" data-i="estDisc">Valor indicativo — confirmado depois de ver o carro.</p>
     </div>
   </section>
-    <a class="prodlink" href="https://lavagem.seedwave.pt/" target="_blank" rel="noopener">
-      <div class="i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <div class="t"><b data-i="plT">Como isto enche a agenda</b><span data-i="plD">Extras, lista de espera, avenças — e o caminho até aos apoios públicos</span></div>
-      <div class="ar">→</div>
-    </a>
 </div>
 
 <!-- ============ СТОЙКА ============ -->
@@ -457,11 +469,6 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
       <button class="wa" style="margin-top:11px" id="wlNotify"><span data-i="wlNotifyBtn">Avisar a lista sobre vaga livre</span></button>
     </div>
   </section>
-    <a class="prodlink" href="https://lavagem.seedwave.pt/" target="_blank" rel="noopener">
-      <div class="i"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <div class="t"><b data-i="plT">Como isto enche a agenda</b><span data-i="plD">Extras, lista de espera, avenças — e o caminho até aos apoios públicos</span></div>
-      <div class="ar">→</div>
-    </a>
 </div>
 
 <!-- ============ СОБСТВЕННИК ============ -->
@@ -484,7 +491,7 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
     <div class="panel">
       <div class="opsum" style="margin-top:0;padding-top:0;border:0">
         <div class="kpi gold"><div class="v" id="dCars">18</div><div class="k" data-i="dK1">carros</div></div>
-        <div class="kpi ok"><div class="v" id="dMoney">214 €</div><div class="k" data-i="dK2">faturado</div></div>
+        <div class="kpi ok"><div class="v" id="dMoney">386 €</div><div class="k" data-i="dK2">faturado</div></div>
         <div class="kpi"><div class="v" id="dOcc">76%</div><div class="k" data-i="dK3">ocupação</div></div>
       </div>
       <div class="chartwrap">
@@ -500,7 +507,7 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
   </section>
 
   <section>
-    <div class="note" data-i="subNote"><b>Assinatura 30 €/mês.</b> Preço dos primeiros dez clientes, fica fixo. Inclui página, mapa do dia, ecrã de balcão, lista de espera, avisos WhatsApp e atualizações. Sem instalação, sem contrato longo.</div>
+    <div class="note" data-i="subNote"><b>50 €/mês — só a partir da 25.ª marcação online.</b> Num mês com menos de 25 carros pelo sistema, não paga nada. Os 2 € de cada marcação são pagos pelo cliente, não por si: 25 marcações cobrem a assinatura por inteiro. Preço das primeiras cinco lavagens, fica fixo. Sem instalação, sem contrato longo.</div>
   </section>
 
   <section>
@@ -533,8 +540,14 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
 
 <div class="bar" id="bar">
   <div class="bar-in">
-    <div class="sum"><div class="a" id="barSum">0,00 €</div><div class="b" id="barCnt">—</div></div>
-    <button class="cta" id="barBtn" data-i="pay">Marcar</button>
+    <div class="info">
+      <div class="ln1" id="barSvc">—</div>
+      <div class="ln2" id="barWhen">—</div>
+    </div>
+    <button class="cta" id="barBtn">
+      <span class="lbl" data-i="pay">Marcar</span>
+      <span class="amt" id="barSum">0,00 €</span>
+    </button>
   </div>
 </div>
 
@@ -572,7 +585,7 @@ const T={
   w4t:"Avenças",w4d:"4 lavagens/mês pagas à cabeça. Dinheiro adiantado e cliente fiel.",
   w5t:"Frotas",w5d:"Rent-a-car e táxis lavam de dia, quando os particulares trabalham.",
   w6t:"Clientes perdidos",w6d:"Quem não vem há 60 dias recebe uma mensagem. Só isso.",
-  subNote:"<b>Assinatura 30 €/mês.</b> Preço dos primeiros dez clientes, fica fixo. Inclui página, mapa do dia, ecrã de balcão, lista de espera, avisos WhatsApp e atualizações. Sem instalação, sem contrato longo.",
+  subNote:"<b>50 €/mês — só a partir da 25.ª marcação online.</b> Num mês com menos de 25 carros pelo sistema, não paga nada. Os 2 € de cada marcação são pagos pelo cliente, não por si: 25 marcações cobrem a assinatura por inteiro. Preço das primeiras cinco lavagens, fica fixo. Sem instalação, sem contrato longo.",
   ladH:"E daqui a seis meses",
   lad1:"<b>Mês 1.</b> Marcação online e lista de espera a funcionar.",
   lad2:"<b>Mês 3.</b> Avenças e frotas enchem as horas calmas.",
@@ -587,7 +600,7 @@ const T={
   revH:"Correu bem?",revP:"Uma avaliação ajuda mais do que imagina.",revBtn:"Avaliar no Google",
   share:"Enviar",copied:"Link copiado ✓",again:"Recomeçar",back:"Voltar",
   tissue:"Tecido",leather:"Pele",small:"Citadino",mid:"Familiar",big:"SUV / 7 lug.",
-  shareTxt:"Marquei a lavagem em dois toques. Autolavagem São Martinho, Funchal:",plT:"Como isto enche a agenda",plD:"Extras, lista de espera, avenças — e o caminho até aos apoios públicos",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Chamada",chH:"Como quer ser avisado?",chP:"O cliente fica ligado a este canal — depois ninguém tem de pensar nisso.",chPc:"Confirmação e lembrete chegam por aqui. Guardamos a sua escolha.",chSaved:"Avisos por",opNotify:"Avisar",newH:"Nova marcação",newP:"Toque numa vaga livre para marcar por telefone",ownGridH:"Mapa dos boxes"},
+  shareTxt:"Marquei a lavagem em dois toques. Autolavagem São Martinho, Funchal:",plT:"Como isto enche a agenda",plD:"Extras, lista de espera, avenças — e o caminho até aos apoios públicos",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Chamada",chH:"Como quer ser avisado?",chP:"O cliente fica ligado a este canal — depois ninguém tem de pensar nisso.",chPc:"Confirmação e lembrete chegam por aqui. Guardamos a sua escolha.",chSaved:"Avisos por",opNotify:"Avisar",newH:"Nova marcação",newP:"Toque numa vaga livre para marcar por telefone",ownGridH:"Mapa dos boxes",feeShort:"marcação",feeLine:"Marcação online",wlBtn:"Avise-me",pickTime:"Escolha a hora"},
 
  en:{roleC:"Customer",roleD:"Front desk",roleO:"Owner",demo:"Demo",
   h1a:"Book your bay.",h1b:"Drive in.",sub:"Pick the day, the service and the time. The bay is held in your name.",
@@ -615,7 +628,7 @@ const T={
   w4t:"Monthly plans",w4d:"4 washes a month, paid upfront. Cash in advance and a loyal client.",
   w5t:"Fleets",w5d:"Rent-a-car and taxis wash during the day, when private clients are at work.",
   w6t:"Lost customers",w6d:"Anyone who hasn't come in 60 days gets one message. That's it.",
-  subNote:"<b>€30/month.</b> The first-ten price, fixed for you. Includes the page, day map, front-desk screen, waiting list, WhatsApp alerts and updates. No installation, no long contract.",
+  subNote:"<b>€50/month — only from the 25th online booking.</b> In a month with fewer than 25 cars through the system you pay nothing. The €2 on each booking is paid by the customer, not by you: 25 bookings cover the subscription in full. The first-five price, fixed for you. No installation, no long contract.",
   ladH:"And six months from now",
   lad1:"<b>Month 1.</b> Online booking and waiting list running.",
   lad2:"<b>Month 3.</b> Plans and fleets fill the quiet hours.",
@@ -630,7 +643,7 @@ const T={
   revH:"How did it go?",revP:"A review helps more than you think.",revBtn:"Review on Google",
   share:"Send",copied:"Link copied ✓",again:"Start over",back:"Back",
   tissue:"Fabric",leather:"Leather",small:"City car",mid:"Family",big:"SUV / 7-seat",
-  shareTxt:"Booked my wash in two taps. Autolavagem São Martinho, Funchal:",plT:"How this fills the agenda",plD:"Extras, waiting list, monthly plans — and the path to public funding",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Call",chH:"How should we reach you?",chP:"The customer is tied to this channel — nobody has to think about it again.",chPc:"Confirmation and reminder arrive here. We remember your choice.",chSaved:"Alerts via",opNotify:"Notify",newH:"New booking",newP:"Tap a free slot to book by phone",ownGridH:"Bay map"},
+  shareTxt:"Booked my wash in two taps. Autolavagem São Martinho, Funchal:",plT:"How this fills the agenda",plD:"Extras, waiting list, monthly plans — and the path to public funding",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Call",chH:"How should we reach you?",chP:"The customer is tied to this channel — nobody has to think about it again.",chPc:"Confirmation and reminder arrive here. We remember your choice.",chSaved:"Alerts via",opNotify:"Notify",newH:"New booking",newP:"Tap a free slot to book by phone",ownGridH:"Bay map",feeShort:"booking",feeLine:"Online booking",wlBtn:"Notify me",pickTime:"Pick a time"},
 
  ru:{roleC:"Клиент",roleD:"Стойка",roleO:"Собственник",demo:"Демо",
   h1a:"Забронируйте бокс.",h1b:"Приезжайте и заезжайте.",sub:"Выберите день, услугу и время. Бокс закрепляется за вами.",
@@ -658,7 +671,7 @@ const T={
   w4t:"Абонементы",w4d:"4 мойки в месяц с оплатой вперёд. Деньги авансом и лояльный клиент.",
   w5t:"Автопарки",w5d:"Прокат и такси моются днём, когда частники на работе.",
   w6t:"Потерянные клиенты",w6d:"Кто не приезжал 60 дней — получает одно сообщение. И всё.",
-  subNote:"<b>Подписка 30 €/мес.</b> Цена первых десяти клиентов, закрепляется за вами. Включено: страница, карта дня, экран стойки, лист ожидания, уведомления в WhatsApp и обновления. Без установки и долгого договора.",
+  subNote:"<b>50 €/мес — только начиная с 25-й онлайн-брони.</b> В месяце, где через систему приехало меньше 25 машин, вы не платите ничего. Эти 2 € с каждой брони платит клиент, а не вы: 25 броней покрывают подписку целиком. Цена первых пяти моек, закрепляется за вами. Без установки и долгого договора.",
   ladH:"А через полгода",
   lad1:"<b>Месяц 1.</b> Онлайн-запись и лист ожидания работают.",
   lad2:"<b>Месяц 3.</b> Абонементы и автопарки заполняют тихие часы.",
@@ -673,7 +686,7 @@ const T={
   revH:"Всё понравилось?",revP:"Отзыв помогает больше, чем кажется.",revBtn:"Оставить отзыв в Google",
   share:"Отправить",copied:"Ссылка скопирована ✓",again:"Заново",back:"Назад",
   tissue:"Ткань",leather:"Кожа",small:"Городской",mid:"Семейный",big:"SUV / 7 мест",
-  shareTxt:"Записался на мойку в два касания. Autolavagem São Martinho, Фуншал:",plT:"Как это заполняет расписание",plD:"Допуслуги, лист ожидания, абонементы — и путь к господдержке",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Звонок",chH:"Как с вами связаться?",chP:"Клиент закрепляется за этим каналом — дальше об этом никто не думает.",chPc:"Подтверждение и напоминание придут сюда. Ваш выбор запомнится.",chSaved:"Уведомления через",opNotify:"Написать",newH:"Новая запись",newP:"Коснитесь свободного окна, чтобы записать по телефону",ownGridH:"Карта боксов"},
+  shareTxt:"Записался на мойку в два касания. Autolavagem São Martinho, Фуншал:",plT:"Как это заполняет расписание",plD:"Допуслуги, лист ожидания, абонементы — и путь к господдержке",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Звонок",chH:"Как с вами связаться?",chP:"Клиент закрепляется за этим каналом — дальше об этом никто не думает.",chPc:"Подтверждение и напоминание придут сюда. Ваш выбор запомнится.",chSaved:"Уведомления через",opNotify:"Написать",newH:"Новая запись",newP:"Коснитесь свободного окна, чтобы записать по телефону",ownGridH:"Карта боксов",feeShort:"бронь",feeLine:"Онлайн-бронирование",wlBtn:"Сообщить мне",pickTime:"Выберите время"},
 
  es:{roleC:"Cliente",roleD:"Mostrador",roleO:"Dueño",demo:"Demo",
   h1a:"Reserve su box.",h1b:"Llegue y entre.",sub:"Elija el día, el servicio y la hora. El box queda a su nombre.",
@@ -701,7 +714,7 @@ const T={
   w4t:"Abonos",w4d:"4 lavados al mes pagados por adelantado.",
   w5t:"Flotas",w5d:"Rent-a-car y taxis lavan de día.",
   w6t:"Clientes perdidos",w6d:"Quien no viene hace 60 días recibe un mensaje.",
-  subNote:"<b>Suscripción 30 €/mes.</b> Precio de los diez primeros, fijo para usted. Incluye página, mapa del día, pantalla de mostrador, lista de espera, avisos WhatsApp y actualizaciones.",
+  subNote:"<b>50 €/mes — solo a partir de la 25.ª reserva online.</b> En un mes con menos de 25 coches por el sistema no paga nada. Los 2 € de cada reserva los paga el cliente, no usted: 25 reservas cubren la suscripción entera. Precio de los cinco primeros, fijo para usted.",
   ladH:"Y dentro de seis meses",
   lad1:"<b>Mes 1.</b> Reserva online y lista de espera funcionando.",
   lad2:"<b>Mes 3.</b> Abonos y flotas llenan las horas tranquilas.",
@@ -716,7 +729,7 @@ const T={
   revH:"¿Todo bien?",revP:"Una reseña ayuda más de lo que cree.",revBtn:"Valorar en Google",
   share:"Enviar",copied:"Enlace copiado ✓",again:"Empezar de nuevo",back:"Volver",
   tissue:"Tela",leather:"Cuero",small:"Urbano",mid:"Familiar",big:"SUV / 7 plazas",
-  shareTxt:"Reservé el lavado en dos toques. Autolavagem São Martinho, Funchal:",plT:"Cómo esto llena la agenda",plD:"Extras, lista de espera, abonos — y el camino a las ayudas públicas",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Llamada",chH:"¿Cómo le avisamos?",chP:"El cliente queda ligado a este canal — después nadie tiene que pensarlo.",chPc:"La confirmación y el recordatorio llegan aquí.",chSaved:"Avisos por",opNotify:"Avisar",newH:"Nueva reserva",newP:"Toque un hueco libre para reservar por teléfono",ownGridH:"Mapa de boxes"},
+  shareTxt:"Reservé el lavado en dos toques. Autolavagem São Martinho, Funchal:",plT:"Cómo esto llena la agenda",plD:"Extras, lista de espera, abonos — y el camino a las ayudas públicas",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Llamada",chH:"¿Cómo le avisamos?",chP:"El cliente queda ligado a este canal — después nadie tiene que pensarlo.",chPc:"La confirmación y el recordatorio llegan aquí.",chSaved:"Avisos por",opNotify:"Avisar",newH:"Nueva reserva",newP:"Toque un hueco libre para reservar por teléfono",ownGridH:"Mapa de boxes",feeShort:"reserva",feeLine:"Reserva online",wlBtn:"Avísenme",pickTime:"Elija la hora"},
 
  de:{roleC:"Kunde",roleD:"Theke",roleO:"Inhaber",demo:"Demo",
   h1a:"Box buchen.",h1b:"Ankommen, reinfahren.",sub:"Tag, Leistung und Uhrzeit wählen. Die Box bleibt für Sie reserviert.",
@@ -744,7 +757,7 @@ const T={
   w4t:"Abos",w4d:"4 Wäschen im Monat, im Voraus bezahlt.",
   w5t:"Flotten",w5d:"Mietwagen und Taxis waschen tagsüber.",
   w6t:"Verlorene Kunden",w6d:"Wer 60 Tage nicht da war, bekommt eine Nachricht.",
-  subNote:"<b>30 €/Monat.</b> Preis der ersten zehn, für Sie fix. Enthält Seite, Tageskarte, Thekenbildschirm, Warteliste, WhatsApp-Hinweise und Updates.",
+  subNote:"<b>50 €/Monat — erst ab der 25. Onlinebuchung.</b> In einem Monat mit weniger als 25 Autos über das System zahlen Sie nichts. Die 2 € pro Buchung zahlt der Kunde, nicht Sie: 25 Buchungen decken das Abo vollständig. Preis der ersten fünf, für Sie fix.",
   ladH:"Und in sechs Monaten",
   lad1:"<b>Monat 1.</b> Onlinebuchung und Warteliste laufen.",
   lad2:"<b>Monat 3.</b> Abos und Flotten füllen die ruhigen Stunden.",
@@ -759,26 +772,27 @@ const T={
   revH:"Alles gut gelaufen?",revP:"Eine Bewertung hilft mehr als Sie denken.",revBtn:"Auf Google bewerten",
   share:"Senden",copied:"Link kopiert ✓",again:"Neu starten",back:"Zurück",
   tissue:"Stoff",leather:"Leder",small:"Kleinwagen",mid:"Familienauto",big:"SUV / 7-Sitzer",
-  shareTxt:"Autowäsche in zwei Tipps gebucht. Autolavagem São Martinho, Funchal:",plT:"Wie das den Kalender füllt",plD:"Extras, Warteliste, Abos — und der Weg zur Förderung",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Anruf",chH:"Wie sollen wir Sie erreichen?",chP:"Der Kunde ist an diesen Kanal gebunden — danach denkt niemand mehr daran.",chPc:"Bestätigung und Erinnerung kommen hier an.",chSaved:"Hinweise per",opNotify:"Benachrichtigen",newH:"Neue Buchung",newP:"Freien Platz antippen, um telefonisch zu buchen",ownGridH:"Boxenkarte"}
+  shareTxt:"Autowäsche in zwei Tipps gebucht. Autolavagem São Martinho, Funchal:",plT:"Wie das den Kalender füllt",plD:"Extras, Warteliste, Abos — und der Weg zur Förderung",chWA:"WhatsApp",chTG:"Telegram",chSMS:"SMS",chCall:"Anruf",chH:"Wie sollen wir Sie erreichen?",chP:"Der Kunde ist an diesen Kanal gebunden — danach denkt niemand mehr daran.",chPc:"Bestätigung und Erinnerung kommen hier an.",chSaved:"Hinweise per",opNotify:"Benachrichtigen",newH:"Neue Buchung",newP:"Freien Platz antippen, um telefonisch zu buchen",ownGridH:"Boxenkarte",feeShort:"Buchung",feeLine:"Onlinebuchung",wlBtn:"Benachrichtigen",pickTime:"Zeit wählen"}
 };
 
 const SVC=[
- {id:0,n:"Lavagem Normal",min:45,p:14.00,top:1,
+ {id:0,n:"Lavagem Normal",min:60,p:24.00,top:1,
   s:{pt:"exterior + interior",en:"exterior + interior",ru:"снаружи + салон",es:"exterior + interior",de:"außen + innen"},
   ic:'<path d="M5 15h14M7 15V9l2-4h6l2 4v6M9 19h2M13 19h2" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/>'},
- {id:1,n:"Lavagem Exterior",min:25,p:8.00,
+ {id:1,n:"Lavagem Exterior",min:40,p:14.00,
   s:{pt:"à mão",en:"hand wash",ru:"ручная мойка",es:"a mano",de:"Handwäsche"},
   ic:'<path d="M12 4c3 4 5 6 5 9a5 5 0 0 1-10 0c0-3 2-5 5-9z" stroke="currentColor" stroke-width="1.7" fill="none"/>'},
- {id:2,n:"Aspiração",min:20,p:6.00,
+ {id:2,n:"Aspiração",min:35,p:10.00,
   s:{pt:"interior completo",en:"full interior",ru:"весь салон",es:"interior completo",de:"Innenraum"},
   ic:'<path d="M5 19h9a5 5 0 0 0 0-10h-2M8 19v-4M5 19v-4M8 5h4v4" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/>'},
- {id:3,n:"Lavagem de Motas",min:20,p:7.00,
+ {id:3,n:"Lavagem de Motas",min:35,p:12.00,
   s:{pt:"duas rodas",en:"two wheels",ru:"мотоциклы",es:"dos ruedas",de:"Zweirad"},
   ic:'<circle cx="6" cy="16" r="3.4" stroke="currentColor" stroke-width="1.7" fill="none"/><circle cx="18" cy="16" r="3.4" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M6 16l4-6h5l3 6" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/>'},
- {id:4,n:"Polimento",min:60,p:25.00,
+ {id:4,n:"Polimento",min:75,p:42.00,
   s:{pt:"brilho e proteção",en:"gloss and protection",ru:"блеск и защита",es:"brillo y protección",de:"Glanz und Schutz"},
   ic:'<path d="M12 3l2.2 5.3L20 9.6l-4 4 1 5.8-5-2.9-5 2.9 1-5.8-4-4 5.8-1.3z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>'}
 ];
+const FEE=2.00;
 
 const CH=[
  {id:'wa', k:'chWA', cls:'wa',  ic:'<path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z" stroke="currentColor" stroke-width="1.8" fill="none"/><path d="M8.5 8.5c0 4 3 7 7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>'},
@@ -833,7 +847,8 @@ function applyRole(){
   h[0].textContent=t('h1a'+suf); h[1].textContent=t('h1b'+suf); p.textContent=t('sub'+suf);
   $('#bar').classList.toggle('show', role==='client' && picked.size>0);
 }
-function renderAll(){renderDays();renderGrid();renderSvc();renderSlots();renderEst();renderOp();renderWL();renderChart();renderWays();updBar();}
+function renderAll(){renderDays();renderGrid();renderSvc();renderSlots();renderEst();renderOp();renderWL();renderWlChn();renderChart();renderWays();updBar();}
+function renderWlChn(){const el=$('#wlChn'); if(el) el.innerHTML=CH.filter(c=>c.id!=='call').map(c=>`<button class="chnb${c.id===chan?' on':''}" data-chan="${c.id}">\n<svg width="17" height="17" viewBox="0 0 24 24">${c.ic}</svg><span>${t(c.k)}</span></button>`).join('');}
 
 function renderDays(){
   const html=[0,1,2].map(i=>`<button class="day${i===day?' on':''}" data-day="${i}">
@@ -869,11 +884,11 @@ function renderSvc(){
       <div class="ico"><svg width="21" height="21" viewBox="0 0 24 24">${s.ic}</svg></div>
       <div class="info"><div class="nm">${s.n}${s.top?'<span class="tagtop">TOP</span>':''}</div>
       <div class="sub">${s.s[L]} · ${s.min} ${t('min')}</div></div>
-      <div class="pr">${CUR(s.p)}</div>
+      <div class="pr" style="text-align:right">${CUR(s.p)}<div style="font-size:10px;color:var(--muted);font-weight:400;font-family:Lato">+ ${FEE.toFixed(0)} € ${t('feeShort')}</div></div>
       <div class="chk"><svg width="11" height="11" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5" stroke="#1a1206" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     </div>`).join('');
 }
-function totals(){let sum=0,mins=0;picked.forEach(id=>{sum+=SVC[id].p;mins+=SVC[id].min});return{sum,mins,cnt:picked.size};}
+function totals(){let sum=0,mins=0;picked.forEach(id=>{sum+=SVC[id].p;mins+=SVC[id].min});const fee=picked.size?FEE:0;return{base:sum,fee,sum:sum+fee,mins,cnt:picked.size};}
 function freeSlots(){
   const bs=busy(),out=[];
   HOURS.forEach(h=>{for(let b=0;b<BOXN;b++){const k=b+'-'+h;if(!bs[k]){out.push({k,b,h});break;}}});
@@ -970,14 +985,21 @@ function plural(n){
   return n===1?t('item1'):t('items');
 }
 function updBar(){
-  const{sum,cnt,mins}=totals();
-  $('#barSum').textContent=CUR(sum);
-  const sl=slot?slot.split('-'):null;
-  $('#barCnt').textContent=cnt?cnt+' '+plural(cnt)+(sl?` · ${dayLabel(day)} ${fmtH(+sl[1])} · Box ${+sl[0]+1}`:` · ${mins} ${t('min')}`):'—';
-  $('#bar').classList.toggle('show',role==='client'&&cnt>0);
+  const{base,fee,sum,cnt,mins}=totals();
+  const bar=$('#bar');
+  bar.classList.toggle('show',role==='client'&&cnt>0);
   $('#slotsSec').classList.toggle('hidden',cnt===0);
+  if(!cnt){$('#barSvc').textContent='—';$('#barWhen').textContent='—';$('#barSum').textContent=CUR(0);return;}
+  const names=[...picked].map(id=>SVC[id].n);
+  $('#barSvc').textContent = names.length>1 ? names[0]+' + '+(names.length-1) : names[0];
+  $('#barSum').textContent = CUR(sum);
+  if(slot){
+    const [b,h]=slot.split('-');
+    $('#barWhen').innerHTML = `${dayLabel(day)} · <b>${fmtH(+h)}</b> · Box ${+b+1} · ${mins} ${t('min')}`;
+  }else{
+    $('#barWhen').innerHTML = `<span class="warn">${t('pickTime')}</span> · ${mins} ${t('min')}`;
+  }
 }
-
 document.addEventListener('click',e=>{
   const r=e.target.closest('[data-role]');
   if(r){role=r.dataset.role;applyRole();window.scrollTo({top:0,behavior:'smooth'});return;}
@@ -1027,7 +1049,7 @@ $('#wlBtn').onclick=()=>{
   inWL=true;
   openSheet(`<div class="code-card">
     <div class="pulse"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 6.5" stroke="var(--ok)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <h3 style="margin-top:12px">${t('wlOk')}</h3><p class="lead" style="margin:6px 0 0">${t('wlOkP')}</p></div>
+    <h3 style="margin-top:12px">${t('wlOk')}</h3><p class="lead" style="margin:6px 0 0">${t('wlOkP')}</p><p class="lead" style="margin:7px 0 0;font-size:12.5px">${t('chSaved')} <b style="color:var(--ink)">${t(chById(chan).k)}</b></p></div>
     <button class="cta wide ghost" style="margin-top:14px" onclick="closeSheet()">${t('back')}</button>`);
 };
 $('#wlNotify').onclick=()=>{wlNotified=true;renderWL();};
@@ -1035,7 +1057,10 @@ $('#wlNotify').onclick=()=>{wlNotified=true;renderWL();};
 function openSheet(h){$('#sheet').innerHTML=h;$('#sheetBg').classList.add('open');}
 function closeSheet(){$('#sheetBg').classList.remove('open');}
 $('#sheetBg').onclick=e=>{if(e.target.id==='sheetBg')closeSheet();};
-$('#barBtn').onclick=()=>sheetPay();
+$('#barBtn').onclick=()=>{
+  if(!slot){const el=$('#slotsSec'); if(el&&el.scrollIntoView) el.scrollIntoView({behavior:'smooth',block:'center'}); return;}
+  sheetPay();
+};
 
 let deskSvc=0, deskCell=null;
 function chnHTML(sel){
@@ -1071,6 +1096,7 @@ function sheetPay(){
     <h3>${t('cart')}</h3>
     <p class="lead">${t('cartLead')}${sl?` · ${dayLabel(day)} <b>${fmtH(+sl[1])}</b> · Box ${+sl[0]+1}`:''}</p>
     ${lines}
+    <div class="line"><span>${t('feeLine')}</span><span>${CUR(FEE)}</span></div>
     <div class="line total"><span>${t('total')}</span><span>${CUR(sum)}</span></div>
     <h3 style="margin-top:18px">${t('chH')}</h3>
     <p class="lead" style="margin-bottom:6px">${t('chPc')}</p>
