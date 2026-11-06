@@ -1173,5 +1173,30 @@ applyLang();
 setInterval(()=>{const n=new Date();$('#nowLbl').textContent=two(n.getHours())+':'+two(n.getMinutes());},20000);
 </script>
 
+<script defer src="https://seedwave.pt/nav/ph.js"></script>
+<script>
+/* nLm · воронка брони для PostHog: услуга → время → корзина → бронь → отзыв (логику демо не трогает) */
+(function(){
+  function T(n,p){try{window.swTrack&&window.swTrack(n,p||{});}catch(e){}}
+  document.addEventListener('click',function(e){
+    var g=function(s){return e.target.closest(s);}, el;
+    if((el=g('[data-role]')))T('nlm_role',{role:el.dataset.role});
+    else if(g('[data-day]'))T('nlm_day');
+    else if((el=g('[data-svc]')))T('nlm_service',{svc:el.dataset.svc});
+    else if(g('[data-slot]')||(g('.cellb.free')&&!g('[data-gm="desk"]')))T('nlm_slot');
+    else if((el=g('[data-p]')))T('nlm_pay_method',{pay:el.dataset.p});
+    else if((el=g('[data-chan]')))T('nlm_channel',{chan:el.dataset.chan});
+    else if((el=g('[data-star]')))T('nlm_rating',{stars:+el.dataset.star});
+    else if(g('#barBtn'))T('nlm_cart');
+    else if(g('#wlBtn'))T('nlm_waitlist');
+    else if(g('#estBtn'))T('nlm_estimate');
+  },true);
+  ['sheetDone','sheetThanks','doShare','resetAll'].forEach(function(f){
+    var o=window[f]; if(typeof o!=='function')return;
+    var name={sheetDone:'nlm_booked',sheetThanks:'nlm_after_booking',doShare:'nlm_share',resetAll:'nlm_again'}[f];
+    window[f]=function(){T(name);return o.apply(this,arguments);};
+  });
+})();
+</script>
 </body>
 </html>
