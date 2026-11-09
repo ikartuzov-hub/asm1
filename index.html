@@ -536,6 +536,7 @@ footer a{color:var(--muted);text-decoration:underline;text-decoration-color:var(
 </div>
 
 <footer>© <span id="yr"></span> <a href="https://seedwave.pt" target="_blank" rel="noopener">SeedWave</a> ·
+  <a data-mad href="https://seedwave.pt/madeira/?lang=pt&amp;utm_source=nlm&amp;utm_medium=footer&amp;utm_content=asm1">Madeira</a> ·
   <a href="https://www.linkedin.com/in/igorkartuzov/" target="_blank" rel="noopener">Igor Kartuzov</a></footer>
 
 <div class="bar" id="bar">
@@ -1198,5 +1199,6 @@ setInterval(()=>{const n=new Date();$('#nowLbl').textContent=two(n.getHours())+'
   });
 })();
 </script>
+<script>/* Madeira в подвале: язык читателя */(function(){function u(){var L=(document.documentElement.lang||"").slice(0,2)||((location.search.match(/[?&]lang=([a-z]{2})/)||[])[1])||"pt";document.querySelectorAll("a[data-mad]").forEach(function(a){a.href=a.href.replace(/lang=[a-z]{2}/,"lang="+L)})}u();if(window.MutationObserver)new MutationObserver(u).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]})})()</script>
 </body>
 </html>
